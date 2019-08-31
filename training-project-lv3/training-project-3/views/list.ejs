@@ -1,0 +1,61 @@
+ 
+ <nav class="navbar navbar-expand-sm navbar-dark bg-primary mb-4">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+<ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="/student/list">List Students</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="/student/add">Add Student</a>
+      </li>
+    </ul>
+
+  
+            <form class="form-inline my-2 my-lg-0" method="post" action="/student/list">
+              <input class="form-control mr-sm-2" type="search" name="search" placeholder="Search" aria-label="Search">
+              <button class="btn btn-success my-2 my-sm-0" type="submit">Search</>
+            </form>
+          </div>
+</nav>
+
+
+
+
+<h1 class="display-4">List</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>#</th>
+            <th>Name</th>
+            <th>Identity Card</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        <% student.forEach(function(student){ %>
+            <tr>
+                <td><%= student.id %></td>
+                <td><%= student.name %></td>
+                <td><%= student.identityCard %></td>
+                <td>
+                    <a href="/student/edit/<%= student.id %>" class="btn btn-primary">Edit</a>
+                    <form class="d-inline" action="/student/delete/<%= student.id %>" method="post">
+                        <input type="submit" value="Delete" class="btn btn-danger">
+                    </form>
+                    <form class="d-inline" action="/file/index/<%= student.id %>" method="post">
+                        <input type="submit" value="Avatar" class="btn btn-success">
+                    </form>
+                </td>
+            </tr>
+        <% }) %>
+    </tbody>
+</table>
