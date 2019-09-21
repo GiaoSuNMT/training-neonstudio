@@ -1,0 +1,22 @@
+<form class="form-signin">
+    <h2 class="form-sigin-heading">Create an account</h2>
+    <br/>
+    <input type="text" class="form-control regForm" placeholder="Email" name="username">
+    <input type="password" class="form-control regForm" placeholder="Password" name="password">
+    <input type="text" class="form-control regForm" placeholder="Name" name="name">
+    <input type="text" class="form-control regForm" placeholder="Phone Number" name="numberLogin">
+    
+    <br/>
+    
+    <input type="submit" id="btn-register" class="btn btn-lg btn-primary btn-block"  value="Create Account" />
+    <input type="hidden" name="_csrf" value="<% _csrf %>" />
+
+</form>
+
+<div class="row text-center my-3">
+        <span class="text-center col-12">
+          <h6 class="text-danger" id="message-register"></h6>
+        </span>
+</div>
+
+

@@ -1,0 +1,74 @@
+ 
+ <nav class="navbar navbar-expand-sm navbar-dark bg-primary mb-4">
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+        
+          <div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+
+<ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+                <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="/student/list">List Students</a>
+      </li>
+      <li class="nav-item ">
+        <a class="nav-link" href="/student/add">Add Student</a>
+      </li>
+    </ul>
+
+  
+            
+          </div>
+</nav>
+
+
+
+
+<h1 class="display-4">List</h1>
+<table class="table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Identity Card</th>
+            <th>Birth</th> 
+            <th>Province</th>
+            <th></th>
+        </tr>
+        <form class="form-inline my-2 my-lg-0" method="post" action="/student/list">
+        <div class="d-flex justify-content-around">
+              <input class="form-control mr-sm-2"   type="search" name="searchName" placeholder="Name" > 
+              <input class="form-control mr-sm-2"  type="search" name="searchIdentityCard" placeholder="Identity Card" >  
+              <input class="form-control mr-sm-2"  type="search" name="searchBirth" placeholder="Birth" >  
+              <input class="form-control mr-sm-2"  type="search" name="searchProvince" placeholder="Province" >    
+              <button   class="btn btn-success my-2 my-sm-0" type="submit">Search</>  
+        </div>    
+        </form>
+        <br/>
+              
+        
+         
+    </thead>
+    <tbody>
+        <% student.forEach(function(student){ %>
+            <tr>
+                
+                <td><%= student.name %></td>
+                <td><%= student.identityCard %></td>
+                <td><%= student.birth %></td>
+                <td><%= student.province %></td>
+                <td>
+                    <a href="/student/edit/<%= student.id %>" class="btn btn-primary">Edit</a>
+                    <form class="d-inline" >
+                        <input type="submit" sid="<%= student.id %>" value="Delete" class="btn btn-danger btn-delete">
+                    </form>
+                    <form class="d-inline" action="/file/index/<%= student.id %>" method="post">
+                        <input type="submit" value="Upload Avatar" class="btn btn-success">
+                    </form>
+                </td>
+            </tr>
+        <% }) %>
+    </tbody>
+</table>

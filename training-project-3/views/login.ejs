@@ -1,0 +1,17 @@
+<form class="form-signin">
+    <h2 class="form-sigin-heading">Login</h2>
+    <input type="text" class="form-control loginForm" placeholder="User Name" name="username">
+    <input type="password" class="form-control loginForm" placeholder="Password" name="password">
+    <br/>
+    
+    <input type="submit" id="btn-login" class="btn btn-lg btn-primary btn-block" value="Login" />
+    <input type="hidden" name="_csrf" value="<% _csrf %>" />
+</form>
+
+<div class="row text-center my-3">
+        <span class="text-center col-12">
+          <h6 class="text-danger" id="message-login"></h6>
+        </span>
+</div>
+
+
